@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { shuffle } from "lodash";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { shuffle } from 'lodash';
 
-import MemoryGrid from "./MemoryGrid";
-import MemoryCard, { CARD_STATE } from "./MemoryCard";
+import MemoryGrid from './MemoryGrid';
+import MemoryCard, { CARD_STATE } from './MemoryCard';
 
 export class MemoryGame extends Component {
   static propTypes = {
-    cards: PropTypes.arrayOf(PropTypes.any).isRequired
+    cards: PropTypes.arrayOf(PropTypes.any).isRequired,
   };
 
   constructor(props) {
@@ -15,8 +15,8 @@ export class MemoryGame extends Component {
     this.state = {
       cards: shuffle(props.cards.concat(props.cards)).map(value => ({
         value,
-        state: CARD_STATE.CLOSED
-      }))
+        state: CARD_STATE.CLOSED,
+      })),
     };
   }
 

@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 export const CARD_STATE = {
-  CLOSED: "CLOSED",
-  OPEN: "OPEN",
-  FOUND: "FOUND"
+  CLOSED: 'CLOSED',
+  OPEN: 'OPEN',
+  FOUND: 'FOUND',
 };
 
 const Card = styled.button`
@@ -13,8 +13,7 @@ const Card = styled.button`
   flex 1 0 0%;
   background: rgba(255, 255, 255, .8);
   background: ${state => {
-    debugger;
-    return state.state === CARD_STATE.CLOSED ? "red" : "blue";
+    return state.state === CARD_STATE.CLOSED ? 'red' : 'blue';
   }};
   color: #333;
   padding: 10%;
