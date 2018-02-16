@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Grid = styled.div`
   display: flex;
@@ -15,4 +15,4 @@ const Grid = styled.div`
   }
 `;
 
-export default (({ children }) => <Grid>{children}</Grid>);
+export default ({ children }) => <Grid>{children}</Grid>;

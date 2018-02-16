@@ -9,5 +9,9 @@
     },
     "rules": {
         "semi": 2
+    },
+    "globals": {
+        "document": true,
+        "window": true
     }
 }
