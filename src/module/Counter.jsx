@@ -1,11 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 
-const Container = styled.div`
-  min-width: 50px;
-  text-align: center;
-`;
-
-const Counter = ({ counter }) => <Container>{counter}</Container>;
+const Counter = ({ counter }) => (
+  <div className="memory-game--counter">{counter}</div>
+);
 
 export default Counter;

@@ -1,0 +1,65 @@
+.memory-game { }
+
+.memory-game--memory-grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80vmin;
+  height: 80vmin;
+  margin: 0 auto 0 auto;
+  user-select: none;
+  background: #666;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.memory-game--memory-grid a {
+  width: auto;
+}
+
+.memory-game--memory-card {
+  cursor: pointer;
+  flex: 1 0 0%;
+  background: rgba(255, 255, 255, .8);
+  color: #333;
+  padding: 10%;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.memory-game--memory-card__closed {}
+
+.memory-game--memory-card__open {}
+
+.memory-game--memory-card__found {
+  opacity: .6;
+  filter: saturate(0%);
+  transition: opacity .3s, filter .3s,
+}
+
+.memory-game--memory-card--content {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.memory-game--memory-card__open .memory-game--memory-card--content,
+.memory-game--memory-card__found .memory-game--memory-card--content {
+  display: flex;
+}
+
+.memory-game--counter {
+  min-width: 50px;
+  text-align: center;
+}
+
+.memory-game--reset {
+  padding: 10px 30px;
+  border-radius: 3px;
+}

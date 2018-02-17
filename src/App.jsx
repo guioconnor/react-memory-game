@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import MemoryGame from './module';
+import './module/default-theme.css';
 
 const Wrap = styled.div`
   font-size: 120px;

@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 
 export const CARD_STATE = {
   CLOSED: 'CLOSED',
@@ -7,34 +6,33 @@ export const CARD_STATE = {
   FOUND: 'FOUND',
 };
 
-const Card = styled.button`
-  cursor: pointer;
-  flex 1 0 0%;
-  background: rgba(255, 255, 255, .8);
-  opacity: ${state => (state.state === CARD_STATE.FOUND ? '.8' : '1')};
-  color: #333;
-  padding: 10%;
-  margin: 10px;
-  border-radius: 10px;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
-  position: relative;
-`;
+const Card = ({ children, state, ...props }) => {
+  const classes = [
+    'memory-game--memory-card',
+    state === CARD_STATE.FOUND
+      ? 'memory-game--memory-card__found'
+      : state === CARD_STATE.OPEN
+        ? 'memory-game--memory-card__open'
+        : 'memory-game--memory-card__closed',
+  ].join(' ');
 
-const CardContent = styled.div`
-  display: ${state => (state.state === CARD_STATE.CLOSED ? 'none' : 'flex')};
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-`;
+  return (
+    <button {...props} className={classes}>
+      {children}
+    </button>
+  );
+};
+
+const CardContent = ({ children, ...props }) => (
+  <div {...props} className="memory-game--memory-card--content">
+    {children}
+  </div>
+);
 
 const MemoryCard = ({ children, state, onClick }) => {
   return (
     <Card onClick={onClick} state={state}>
-      <CardContent state={state}>{children}</CardContent>
+      <CardContent>{children}</CardContent>
     </Card>
   );
 };

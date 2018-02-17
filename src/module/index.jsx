@@ -10,7 +10,11 @@ const MEMORY_GAME_CONTEXT = '__memory_game_context__';
 
 const ResetButton = ({ children = 'Reset Game' }, context) => {
   const { resetGame } = context[MEMORY_GAME_CONTEXT];
-  return <button onClick={resetGame}>{children}</button>;
+  return (
+    <button className="memory-game--reset" onClick={resetGame}>
+      {children}
+    </button>
+  );
 };
 ResetButton.contextTypes = {
   [MEMORY_GAME_CONTEXT]: PropTypes.object.isRequired,
@@ -179,7 +183,7 @@ export class MemoryGame extends Component {
   }
 
   render() {
-    return <div>{this.props.children}</div>;
+    return <div className="memory-game">{this.props.children}</div>;
   }
 }
 
