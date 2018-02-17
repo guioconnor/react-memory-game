@@ -7,25 +7,42 @@ const Wrap = styled.div`
   font-size: 120px;
 `;
 
+const GameContainer = styled.div`
+  display: flex;
+`;
+
+const PanelContainer = styled.div`
+  width: 200px;
+  order: -1;
+`;
+
+const BoardContainer = styled.div`
+  flex: 1;
+`;
+
 const App = () => (
-  <div>
-    <MemoryGame
-      cards={[
-        <Wrap>💩</Wrap>,
-        <Wrap>🤷</Wrap>,
-        <Wrap>❤️</Wrap>,
-        <Wrap>😂</Wrap>,
-        <Wrap>😍</Wrap>,
-        <Wrap>😊</Wrap>,
-        <Wrap>🤔</Wrap>,
-        <Wrap>🔥</Wrap>,
-      ]}
-    >
-      <MemoryGame.Board />
-      <MemoryGame.Reset />
-      <MemoryGame.MovesCounter />
-      <MemoryGame.PairsFoundCounter />
-    </MemoryGame>
-  </div>
+  <MemoryGame
+    cards={[
+      <Wrap>💩</Wrap>,
+      <Wrap>🤷</Wrap>,
+      <Wrap>❤️</Wrap>,
+      <Wrap>😂</Wrap>,
+      <Wrap>😍</Wrap>,
+      <Wrap>😊</Wrap>,
+      <Wrap>🤔</Wrap>,
+      <Wrap>🔥</Wrap>,
+    ]}
+  >
+    <GameContainer>
+      <BoardContainer>
+        <MemoryGame.Board />
+      </BoardContainer>
+      <PanelContainer>
+        <MemoryGame.Reset />
+        <MemoryGame.MovesCounter />
+        <MemoryGame.PairsFoundCounter />
+      </PanelContainer>
+    </GameContainer>
+  </MemoryGame>
 );
 export default App;
