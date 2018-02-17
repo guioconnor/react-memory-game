@@ -1,9 +1,25 @@
 import React from 'react';
+import styled from 'styled-components';
 import MemoryGame from './module';
+
+const Wrap = styled.div`
+  font-size: 120px;
+`;
 
 const App = () => (
   <div>
-    <MemoryGame cards={['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']}>
+    <MemoryGame
+      cards={[
+        <Wrap>💩</Wrap>,
+        <Wrap>🤷</Wrap>,
+        <Wrap>❤️</Wrap>,
+        <Wrap>😂</Wrap>,
+        <Wrap>😍</Wrap>,
+        <Wrap>😊</Wrap>,
+        <Wrap>🤔</Wrap>,
+        <Wrap>🔥</Wrap>,
+      ]}
+    >
       <MemoryGame.Board />
       <MemoryGame.Reset />
       <MemoryGame.MovesCounter />
@@ -11,5 +27,4 @@ const App = () => (
     </MemoryGame>
   </div>
 );
-
 export default App;
