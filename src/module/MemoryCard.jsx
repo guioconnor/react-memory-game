@@ -6,7 +6,13 @@ export const CARD_STATE = {
   FOUND: 'FOUND',
 };
 
-const Card = ({ children, state, ...props }) => {
+const CardContent = ({ children, ...props }) => (
+  <div {...props} className="memory-game--memory-card--content">
+    {children}
+  </div>
+);
+
+const MemoryCard = ({ children, state, onClick, ...props }) => {
   const classes = [
     'memory-game--memory-card',
     state === CARD_STATE.FOUND
@@ -17,23 +23,9 @@ const Card = ({ children, state, ...props }) => {
   ].join(' ');
 
   return (
-    <button {...props} className={classes}>
-      {children}
-    </button>
-  );
-};
-
-const CardContent = ({ children, ...props }) => (
-  <div {...props} className="memory-game--memory-card--content">
-    {children}
-  </div>
-);
-
-const MemoryCard = ({ children, state, onClick }) => {
-  return (
-    <Card onClick={onClick} state={state}>
+    <button {...props} className={classes} onClick={onClick}>
       <CardContent>{children}</CardContent>
-    </Card>
+    </button>
   );
 };
 
