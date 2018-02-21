@@ -23,14 +23,46 @@ const BoardContainer = styled.div`
 const App = () => (
   <MemoryGame
     cards={[
-      <Wrap>💩</Wrap>,
-      <Wrap>🤷</Wrap>,
-      <Wrap>❤️</Wrap>,
-      <Wrap>😂</Wrap>,
-      <Wrap>😍</Wrap>,
-      <Wrap>😊</Wrap>,
-      <Wrap>🤔</Wrap>,
-      <Wrap>🔥</Wrap>,
+      <Wrap>
+        <span role="img" aria-label="Poo">
+          💩
+        </span>
+      </Wrap>,
+      <Wrap>
+        <span role="img" aria-label="Shrug">
+          🤷
+        </span>
+      </Wrap>,
+      <Wrap>
+        <span role="img" aria-label="Heart">
+          ❤️
+        </span>
+      </Wrap>,
+      <Wrap>
+        <span role="img" aria-label="Joy">
+          😂
+        </span>
+      </Wrap>,
+      <Wrap>
+        <span role="img" aria-label="Heart Eyes">
+          😍
+        </span>
+      </Wrap>,
+      <Wrap>
+        <span role="img" aria-label="Smile">
+          😊
+        </span>
+      </Wrap>,
+      <Wrap>
+        <span role="img" aria-label="Thinking">
+          🤔
+        </span>
+      </Wrap>,
+      <Wrap>
+        <span role="img" aria-label="Fire">
+          🔥
+        </span>
+      </Wrap>,
     ]}
   >
     <GameContainer>
