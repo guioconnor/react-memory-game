@@ -1,80 +1,30 @@
 import React from 'react';
-import styled from 'styled-components';
-import MemoryGame from './module';
-import './module/default-theme.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-const Wrap = styled.div`
-  font-size: 120px;
-`;
+import Dashboard from './views/Dashboard.jsx';
+import EmojiMemoryGame from './views/EmojiMemoryGame.jsx';
+import LettersMemoryGame from './views/LettersMemoryGame.jsx';
+import Error404 from './views/Error404.jsx';
+import Navigation from './components/Navigation';
 
-const GameContainer = styled.div`
-  display: flex;
-`;
-
-const PanelContainer = styled.div`
-  width: 200px;
-  order: -1;
-`;
-
-const BoardContainer = styled.div`
-  flex: 1;
-`;
+const routes = [
+  { uri: '/', label: 'Dashboard', component: Dashboard },
+  { uri: '/emoji', label: 'Emoji', component: EmojiMemoryGame },
+  { uri: '/letters', label: 'Letters', component: LettersMemoryGame },
+];
 
 const App = () => (
-  <MemoryGame
-    cards={[
-      <Wrap>
-        <span role="img" aria-label="Poo">
-          💩
-        </span>
-      </Wrap>,
-      <Wrap>
-        <span role="img" aria-label="Shrug">
-          🤷
-        </span>
-      </Wrap>,
-      <Wrap>
-        <span role="img" aria-label="Heart">
-          ❤️
-        </span>
-      </Wrap>,
-      <Wrap>
-        <span role="img" aria-label="Joy">
-          😂
-        </span>
-      </Wrap>,
-      <Wrap>
-        <span role="img" aria-label="Heart Eyes">
-          😍
-        </span>
-      </Wrap>,
-      <Wrap>
-        <span role="img" aria-label="Smile">
-          😊
-        </span>
-      </Wrap>,
-      <Wrap>
-        <span role="img" aria-label="Thinking">
-          🤔
-        </span>
-      </Wrap>,
-      <Wrap>
-        <span role="img" aria-label="Fire">
-          🔥
-        </span>
-      </Wrap>,
-    ]}
-  >
-    <GameContainer>
-      <BoardContainer>
-        <MemoryGame.Board />
-      </BoardContainer>
-      <PanelContainer>
-        <MemoryGame.Reset />
-        <MemoryGame.MovesCounter />
-        <MemoryGame.PairsFoundCounter />
-      </PanelContainer>
-    </GameContainer>
-  </MemoryGame>
+  <Router>
+    <div>
+      <Navigation routes={routes} />
+      <Switch>
+        <Route exact path="/" component={Dashboard} />
+        <Route exact path="/emoji" component={EmojiMemoryGame} />
+        <Route exact path="/letters" component={LettersMemoryGame} />
+        <Route component={Error404} />
+      </Switch>
+    </div>
+  </Router>
 );
+
 export default App;
