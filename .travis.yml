@@ -6,6 +6,7 @@ install:
 - yarn
 script:
 - yarn test
+- yarn build
 deploy:
   provider: npm
   skip_cleanup: true
@@ -14,3 +15,9 @@ deploy:
     secure: Bh5TedDPchLHUBTLwM6wm6cdRATQ8gMrtofqbfWrN2Add4BNJxeDCGTh3dQUk2OjwCPCpG09moY128WeStvudm4gM/f9CwbvTQTC5KIBoHIIl2WYUBNUanagi6VanAC0VVkl2Q1xFoerrJt+lthaGGrTEv4PykB9tVzclT+3BHNPyOQ8I8mBsDroUy+U7SKcwjmGip44uTX8z9ZPqAhHKGGgjmuE0h0yTHiHq2vWJL7XpJQBFeBIQaZujmXZfl1JtQ2rOXzGNv9NwdyjQL29CRaM3TzrjyEUK4zN2RM4Sb/3otE21kj6UFLtn6Fxf8/JuoDsFS+GQ4L9YGFwhdhNhMSrZEXMuizTxUjuq7nU8AlO5okT0wrzXUF3++jV4zICzq0tfIhRw+0jQfy4TyYc2vHSUm4BQ6G1k3LTJau7VDUb0EV6A7c/qu2YttYfrXOBeFtlfaHBE9CaYN5iuGCMEEVuKY6yelhqdL1VrTCktLQGkuW5ggupBqaZ623GrYO/cNrUjI27LbocPbVnspnhXDMEcXHbJ5q9oGjKmoaNg0DC58VrkG0AzuUQtD3KeMtJ38gIUUlW6ER5VNyNGe4V44iWuiEcXufuK20btE8IUlw3L+NAmhU+/F0Dinw1lc+BoFUaGj2cRn8SpzEqV4Qp6nJVvsCvPleD0qAfDWg6HZs=
   on:
     tags: true
+deploy:
+  provider: surge
+  skip_cleanup: true
+  project: ./build/
+  domain: react-memory-game.surge.sh
+  on: master
