@@ -19,5 +19,5 @@ deploy:
   provider: surge
   skip_cleanup: true
   project: ./build/
-  domain: react-memory-game.surge.sh
+  domain: react-memory-game-demo.surge.sh
   on: master
