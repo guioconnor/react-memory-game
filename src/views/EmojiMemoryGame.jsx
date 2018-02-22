@@ -22,6 +22,7 @@ const BoardContainer = styled.div`
 
 const EmojiMemoryGame = () => (
   <MemoryGame
+    glimpse={2000}
     cards={[
       <Wrap>
         <span role="img" aria-label="Poo">

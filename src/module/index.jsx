@@ -58,6 +58,12 @@ export class MemoryGame extends Component {
     this.state = this.getInitialState(props.cards);
   }
 
+  componentWillMount() {
+    if (this.props.glimpse) {
+      this.startGlimpse();
+    }
+  }
+
   getChildContext() {
     return {
       [MEMORY_GAME_CONTEXT]: {
@@ -72,6 +78,7 @@ export class MemoryGame extends Component {
   getInitialState = cards => ({
     moves: 0,
     pairsFound: 0,
+    glimpse: false,
     cards: shuffle(cards.concat(cards)).map(value => ({
       value,
       state: CARD_STATE.CLOSED,
@@ -80,7 +87,28 @@ export class MemoryGame extends Component {
 
   resetGame = () => {
     clearTimeout(this.timeout);
-    this.setState(this.getInitialState(this.props.cards));
+    this.setState(this.getInitialState(this.props.cards), () => {
+      if (this.props.glimpse) {
+        this.startGlimpse();
+      }
+    });
+  };
+
+  startGlimpse = async () => {
+    const cards = this.state.cards.map(card => ({
+      ...card,
+      state: CARD_STATE.OPEN,
+    }));
+    this.setState({
+      cards,
+      glimpse: true,
+    });
+    this.timeout = setTimeout(() => {
+      this.closeOpenCards();
+      this.setState({
+        glimpse: false,
+      });
+    }, this.props.glimpse);
   };
 
   getOpenCards = () =>
@@ -152,6 +180,9 @@ export class MemoryGame extends Component {
   };
 
   handleCardClick = position => () => {
+    if (this.state.glimpse) {
+      return;
+    }
     const openCards = this.getOpenCards(this.state);
 
     switch (openCards.length) {
