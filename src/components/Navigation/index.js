@@ -7,7 +7,7 @@ const Navigation = ({ routes }) => (
   <nav>
     <ul>
       {routes.map(route => (
-        <li>
+        <li key={route.uri}>
           <Link to={route.uri}>{route.label}</Link>
         </li>
       ))}

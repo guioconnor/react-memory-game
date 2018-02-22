@@ -20,8 +20,13 @@ const App = () => (
     <div>
       <Navigation routes={routes} />
       <Switch>
-        {routes.map(route => (
-          <Route exact path={route.uri} component={route.component} />
+        {routes.map((route, index) => (
+          <Route
+            exact
+            path={route.uri}
+            component={route.component}
+            key={index}
+          />
         ))}
         <Route component={Error404} />
       </Switch>
