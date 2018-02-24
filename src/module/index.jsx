@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { shuffle } from 'lodash';
+import { shuffle, identity } from 'lodash';
 
 import MemoryGrid from './MemoryGrid';
 import MemoryCard, { CARD_STATE } from './MemoryCard';
@@ -75,15 +75,18 @@ export class MemoryGame extends Component {
     };
   }
 
-  getInitialState = cards => ({
-    moves: 0,
-    pairsFound: 0,
-    glimpse: false,
-    cards: shuffle(cards.concat(cards)).map(value => ({
-      value,
-      state: CARD_STATE.CLOSED,
-    })),
-  });
+  getInitialState = cards => {
+    const randomise = this.props.dryRun ? identity : shuffle;
+    return {
+      moves: 0,
+      pairsFound: 0,
+      glimpse: false,
+      cards: randomise(cards.concat(cards)).map(value => ({
+        value,
+        state: CARD_STATE.CLOSED,
+      })),
+    };
+  };
 
   resetGame = () => {
     clearTimeout(this.timeout);
