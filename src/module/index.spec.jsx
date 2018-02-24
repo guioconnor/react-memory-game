@@ -36,6 +36,7 @@ describe('Memory Game State machine', () => {
         expect(countCardsWithValue(Game.state('cards'), card.value)).toEqual(2);
       });
     });
+    xit("clicking on a card during a glimpse should not alter it's state", () => {});
   });
 
   describe('when no card is open', () => {
@@ -117,5 +118,33 @@ describe('Memory Game State machine', () => {
         expect(Game.state('cards')[7].state).toBe(CARD_STATE.OPEN);
       });
     });
+
+    describe('when there are cards FOUND', () => {
+      xit("clicking on a FOUND card should not alter it's state", () => {});
+    });
   });
+});
+
+xdescribe('<MemoryGame.Reset />', () => {
+  it('should reshuffle the cards', () => {});
+
+  it('should mark the cards as CLOSED', () => {});
+
+  describe('when `glimpse` is passed as prop', () => {
+    it('should display the cards OPEN for the time specified', () => {});
+
+    it('should close the cards after the time specified', () => {});
+  });
+});
+
+xdescribe('<MemoryGame.Board />', () => {
+  it('should render a MemoryGrid with cards', () => {});
+});
+
+xdescribe('<MemoryGame.MovesCounter />', () => {
+  it('should a counter with the amount of pairs attempted', () => {});
+});
+
+xdescribe('<MemoryGame.PairsFoundCounter />', () => {
+  it('should render a counter with the amount of pairs found', () => {});
 });
