@@ -22,6 +22,7 @@ const BoardContainer = styled.div`
 
 const LettersMemoryGame = () => (
   <MemoryGame
+    glimpse={2000}
     cards={[
       <Wrap>A</Wrap>,
       <Wrap>B</Wrap>,
