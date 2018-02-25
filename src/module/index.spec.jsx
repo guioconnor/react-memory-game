@@ -37,6 +37,8 @@ describe('Memory Game State machine', () => {
       });
     });
     xit("clicking on a card during a glimpse should not alter it's state", () => {});
+
+    xit('should throw an error if the wrong number of cards or pairs is passed', () => {});
   });
 
   describe('when no card is open', () => {
@@ -93,35 +95,35 @@ describe('Memory Game State machine', () => {
       expect(Game.state('cards')[0].state).toBe(CARD_STATE.OPEN);
     });
 
-    describe('when two cards are open and match', () => {
-      const Game = mount(
-        <MemoryGame dryRun cards={[1, 2, 3, 4, 5, 6, 7, 8]}>
-          <MemoryGame.Board />
-        </MemoryGame>,
-      );
-
-      clickCardAtPosition(Game, 0);
-      clickCardAtPosition(Game, 8);
-
-      it('both cards should marked as found', () => {
-        expect(Game.state('cards')[0].state).toBe(CARD_STATE.FOUND);
-        expect(Game.state('cards')[8].state).toBe(CARD_STATE.FOUND);
-      });
-
-      it('should not be possible to change the state of a found card', () => {
-        clickCardAtPosition(Game, 8);
-        expect(Game.state('cards')[8].state).toBe(CARD_STATE.FOUND);
-      });
-
-      it('should be possible to turn another closed card', () => {
-        clickCardAtPosition(Game, 7);
-        expect(Game.state('cards')[7].state).toBe(CARD_STATE.OPEN);
-      });
-    });
-
     describe('when there are cards FOUND', () => {
       xit("clicking on a FOUND card should not alter it's state", () => {});
     });
+  });
+});
+
+describe('when two cards are open and match', () => {
+  const Game = mount(
+    <MemoryGame dryRun cards={[1, 2, 3, 4, 5, 6, 7, 8]}>
+      <MemoryGame.Board />
+    </MemoryGame>,
+  );
+
+  clickCardAtPosition(Game, 0);
+  clickCardAtPosition(Game, 8);
+
+  it('both cards should marked as found', () => {
+    expect(Game.state('cards')[0].state).toBe(CARD_STATE.FOUND);
+    expect(Game.state('cards')[8].state).toBe(CARD_STATE.FOUND);
+  });
+
+  it('should not be possible to change the state of a found card', () => {
+    clickCardAtPosition(Game, 8);
+    expect(Game.state('cards')[8].state).toBe(CARD_STATE.FOUND);
+  });
+
+  it('should be possible to turn another closed card', () => {
+    clickCardAtPosition(Game, 7);
+    expect(Game.state('cards')[7].state).toBe(CARD_STATE.OPEN);
   });
 });
 
