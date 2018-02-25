@@ -7,6 +7,7 @@ import MemoryCard, { CARD_STATE } from './MemoryCard';
 import Counter from './Counter';
 
 const MEMORY_GAME_CONTEXT = '__memory_game_context__';
+const BOARD_SIZE = 16;
 
 const ResetButton = ({ children = 'Reset Game' }, context) => {
   const { resetGame } = context[MEMORY_GAME_CONTEXT];
@@ -55,6 +56,12 @@ export class MemoryGame extends Component {
 
   constructor(props) {
     super(props);
+    if (props.cards.length !== BOARD_SIZE / 2) {
+      throw new Error(
+        `Wrong card set size: <MemoryGame /> expects ${BOARD_SIZE /
+          2} cards or pairs`,
+      );
+    }
     this.state = this.getInitialState(props.cards);
   }
 
