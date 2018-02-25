@@ -45,21 +45,19 @@ const cards = birdImages.map(imageName => (
   </Wrap>
 ));
 
-const LettersMemoryGame = () => {
-  debugger;
-  return (
-    <MemoryGame cards={cards} glimpse={2500}>
-      <GameContainer>
-        <BoardContainer>
-          <MemoryGame.Board />
-        </BoardContainer>
-        <PanelContainer>
-          <MemoryGame.Reset />
-          <MemoryGame.MovesCounter />
-          <MemoryGame.PairsFoundCounter />
-        </PanelContainer>
-      </GameContainer>
-    </MemoryGame>
-  );
-};
+const LettersMemoryGame = () => (
+  <MemoryGame cards={cards} glimpse={2500}>
+    <GameContainer>
+      <BoardContainer>
+        <MemoryGame.Board />
+      </BoardContainer>
+      <PanelContainer>
+        <MemoryGame.Reset />
+        <MemoryGame.MovesCounter />
+        <MemoryGame.PairsFoundCounter />
+      </PanelContainer>
+    </GameContainer>
+  </MemoryGame>
+);
+
 export default LettersMemoryGame;

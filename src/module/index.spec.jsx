@@ -36,7 +36,7 @@ describe('Memory Game State machine', () => {
         expect(countCardsWithValue(Game.state('cards'), card.value)).toEqual(2);
       });
     });
-    xit("clicking on a card during a glimpse should not alter it's state", () => {});
+    xit('clicking on a card during a glimpse should not alter its state', () => {});
 
     xit('should throw an error if the wrong number of cards or pairs is passed', () => {});
   });

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { shuffle, identity } from 'lodash';
+import { shuffle, identity, cloneDeep } from 'lodash';
 
 import MemoryGrid from './MemoryGrid';
 import MemoryCard, { CARD_STATE } from './MemoryCard';
@@ -82,16 +82,33 @@ export class MemoryGame extends Component {
     };
   }
 
+  getPreparedCard = (display, value) => ({
+    value,
+    display,
+    state: CARD_STATE.CLOSED,
+  });
+
+  prepareCardPairs = pairs =>
+    pairs
+      .map((pair, index) => pair.map(card => this.getPreparedCard(card, index)))
+      .reduce((prev, curr) => prev.concat(curr));
+
+  prepareSingleCards = cards => {
+    const preparedCards = cards.map(this.getPreparedCard);
+    return preparedCards.concat(cloneDeep(preparedCards));
+  };
+
   getInitialState = cards => {
     const randomise = this.props.dryRun ? identity : shuffle;
+    let prepareCards = Array.isArray(cards[0])
+      ? this.prepareCardPairs
+      : this.prepareSingleCards;
+
     return {
       moves: 0,
       pairsFound: 0,
       glimpse: false,
-      cards: randomise(cards.concat(cards)).map(value => ({
-        value,
-        state: CARD_STATE.CLOSED,
-      })),
+      cards: randomise(prepareCards(cards)),
     };
   };
 
@@ -105,7 +122,7 @@ export class MemoryGame extends Component {
   };
 
   startGlimpse = async () => {
-    const cards = this.state.cards.map(card => ({
+    const cards = cloneDeep(this.state.cards).map(card => ({
       ...card,
       state: CARD_STATE.OPEN,
     }));
@@ -122,21 +139,21 @@ export class MemoryGame extends Component {
   };
 
   getOpenCards = () =>
-    this.state.cards.filter(card => card.state === CARD_STATE.OPEN);
+    cloneDeep(this.state.cards).filter(card => card.state === CARD_STATE.OPEN);
 
   openCard = position => {
-    const cards = [...this.state.cards];
+    const cards = cloneDeep(this.state.cards);
     cards[position].state =
       cards[position].state === CARD_STATE.CLOSED
         ? CARD_STATE.OPEN
         : cards[position].state;
 
-    this.setState({ cards });
+    this.setState({ cards }, this.checkForPair);
   };
 
   closeOpenCards = () => {
     clearTimeout(this.timeout);
-    const cards = this.state.cards.map(card => ({
+    const cards = cloneDeep(this.state.cards).map(card => ({
       ...card,
       state: card.state === CARD_STATE.OPEN ? CARD_STATE.CLOSED : card.state,
     }));
@@ -145,7 +162,7 @@ export class MemoryGame extends Component {
   };
 
   findCardPair = () => {
-    const cards = this.state.cards.map(card => ({
+    const cards = cloneDeep(this.state.cards).map(card => ({
       ...card,
       state: card.state === CARD_STATE.OPEN ? CARD_STATE.FOUND : card.state,
     }));
@@ -154,7 +171,7 @@ export class MemoryGame extends Component {
   };
 
   hasGameEnded = () => {
-    this.state.cards.some(card => card.state !== CARD_STATE.FOUND);
+    cloneDeep(this.state.cards).some(card => card.state !== CARD_STATE.FOUND);
   };
 
   scheduleCloseCards = (delay = 700) => {
@@ -202,7 +219,6 @@ export class MemoryGame extends Component {
       }
       case 1: {
         this.openCard(position);
-        this.checkForPair();
         break;
       }
       default: {
@@ -212,13 +228,13 @@ export class MemoryGame extends Component {
   };
 
   getMemoryCards() {
-    return this.state.cards.map((card, position) => (
+    return cloneDeep(this.state.cards).map((card, position) => (
       <MemoryCard
         onClick={this.handleCardClick(position)}
         key={position}
         state={card.state}
       >
-        {card.value}
+        {card.display}
       </MemoryCard>
     ));
   }
@@ -229,22 +245,3 @@ export class MemoryGame extends Component {
 }
 
 export default MemoryGame;
-
-/* State Machine
-
-switch(state) {
-  all_closed:
-    click_card();
-  one_open:
-    click_card();
-  card_clicked:
-    if(card.notFound && cards.open < 2) open_card()
-  two_open:
-    if(card[1].value === card[2].value) find_cards();
-    else close_open_cards
-  all_found:
-    congratulate();
-    close_all_cards();
-}
-
-*/
