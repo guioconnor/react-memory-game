@@ -39,5 +39,16 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.6.1",
     "prettier": "^1.10.2"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/module/**/*.js",
+      "src/module/**/*.jsx",
+      "src/views/**/*.js",
+      "src/views/**/*.jsx",
+      "src/components/**/*.js",
+      "src/components/**/*.jsx",
+      "!index.js"
+    ]
   }
 }
