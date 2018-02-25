@@ -5,6 +5,7 @@ import Dashboard from './views/Dashboard.jsx';
 import About from './views/About.jsx';
 import EmojiMemoryGame from './views/EmojiMemoryGame.jsx';
 import LettersMemoryGame from './views/LettersMemoryGame.jsx';
+import BirdsMemoryGame from './views/BirdsMemoryGame.jsx';
 import Error404 from './views/Error404.jsx';
 import Navigation from './components/Navigation';
 
@@ -13,6 +14,7 @@ const routes = [
   { uri: '/about', label: 'About', component: About },
   { uri: '/emoji', label: 'Emoji', component: EmojiMemoryGame },
   { uri: '/letters', label: 'Letters', component: LettersMemoryGame },
+  { uri: '/birds', label: 'Birds', component: BirdsMemoryGame },
 ];
 
 const App = () => (
