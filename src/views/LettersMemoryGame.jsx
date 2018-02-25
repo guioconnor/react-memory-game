@@ -24,14 +24,14 @@ const LettersMemoryGame = () => (
   <MemoryGame
     glimpse={2000}
     cards={[
-      <Wrap>A</Wrap>,
-      <Wrap>B</Wrap>,
-      <Wrap>C</Wrap>,
-      <Wrap>D</Wrap>,
-      <Wrap>E</Wrap>,
-      <Wrap>F</Wrap>,
-      <Wrap>G</Wrap>,
-      <Wrap>H</Wrap>,
+      [<Wrap>A</Wrap>, <Wrap>a</Wrap>],
+      [<Wrap>B</Wrap>, <Wrap>b</Wrap>],
+      [<Wrap>C</Wrap>, <Wrap>c</Wrap>],
+      [<Wrap>D</Wrap>, <Wrap>d</Wrap>],
+      [<Wrap>E</Wrap>, <Wrap>e</Wrap>],
+      [<Wrap>F</Wrap>, <Wrap>f</Wrap>],
+      [<Wrap>G</Wrap>, <Wrap>g</Wrap>],
+      [<Wrap>H</Wrap>, <Wrap>h</Wrap>],
     ]}
   >
     <GameContainer>
