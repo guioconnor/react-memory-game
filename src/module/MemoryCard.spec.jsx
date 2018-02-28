@@ -48,7 +48,7 @@ describe('<MemoryCard />', () => {
     );
 
     it('should call the callback fuction', () => {
-      container.simulate('click');
+      container.find('button').simulate('click');
       expect(mockClickHandler.mock.calls.length).toEqual(1);
     });
   });

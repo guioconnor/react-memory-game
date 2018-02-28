@@ -1,31 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ClosedMemoryCard 1`] = `
-<button
-  className="memory-game--memory-card memory-game--memory-card__closed"
+<div
+  className="memory-game--memory-slot"
 >
-  <CardContent>
-    <MockChildren />
-  </CardContent>
-</button>
+  <button
+    className="memory-game--memory-card memory-game--memory-card__closed"
+  >
+    <CardContent>
+      <MockChildren />
+    </CardContent>
+  </button>
+</div>
 `;
 
 exports[`FoundMemoryCard 1`] = `
-<button
-  className="memory-game--memory-card memory-game--memory-card__found"
+<div
+  className="memory-game--memory-slot"
 >
-  <CardContent>
-    <MockChildren />
-  </CardContent>
-</button>
+  <button
+    className="memory-game--memory-card memory-game--memory-card__found"
+  >
+    <CardContent>
+      <MockChildren />
+    </CardContent>
+  </button>
+</div>
 `;
 
 exports[`OpenMemoryCard 1`] = `
-<button
-  className="memory-game--memory-card memory-game--memory-card__open"
+<div
+  className="memory-game--memory-slot"
 >
-  <CardContent>
-    <MockChildren />
-  </CardContent>
-</button>
+  <button
+    className="memory-game--memory-card memory-game--memory-card__open"
+  >
+    <CardContent>
+      <MockChildren />
+    </CardContent>
+  </button>
+</div>
 `;

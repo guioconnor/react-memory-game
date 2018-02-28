@@ -23,9 +23,11 @@ const MemoryCard = ({ children, state, onClick, ...props }) => {
   ].join(' ');
 
   return (
-    <button {...props} className={classes} onClick={onClick}>
-      <CardContent>{children}</CardContent>
-    </button>
+    <div className="memory-game--memory-slot">
+      <button {...props} className={classes} onClick={onClick}>
+        <CardContent>{children}</CardContent>
+      </button>
+    </div>
   );
 };
 
