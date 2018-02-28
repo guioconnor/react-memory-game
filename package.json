@@ -1,8 +1,15 @@
 {
   "name": "react-memory-game",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "private": false,
   "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guioconnor/react-memory-game.git",
+    "bugs": {
+      "url": "https://github.com/guioconnor/react-memory-game/issues"
+    }
+  },
   "dependencies": {
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
