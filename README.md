@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/guioconnor/react-memory-game.svg?branch=master)](https://travis-ci.org/guioconnor/react-memory-game)
+
 ## What is react-memory-game?
 
 Is a memory game engine built in react to use in react applications. This is not a game per se but
