@@ -7,6 +7,7 @@ import birdsCards from '../cardSets/birds';
 import arithmeticCards from '../cardSets/arithmetic';
 import emojiCards from '../cardSets/emoji';
 import lettersCards from '../cardSets/letters';
+import tilesCards from '../cardSets/tiles';
 
 const cardSets = {
   BIRDS_CARDS: {
@@ -24,6 +25,10 @@ const cardSets = {
   LETTERS_CARDS: {
     label: 'Letters cards',
     component: lettersCards,
+  },
+  TILES_CARDS: {
+    label: 'Tiles cards',
+    component: tilesCards,
   },
 };
 
@@ -48,17 +53,17 @@ class Dashboard extends Component {
     const cardSet = cardSets[selectedCardSet.value].component;
     return (
       <div>
-        <MemoryGame cards={cardSet} glimpse={2500}>
-          <MemoryGame.Board />
-          <MemoryGame.Reset />
-          <MemoryGame.MovesCounter />
-          <MemoryGame.PairsFoundCounter />
-        </MemoryGame>
         <CardsSelector
           options={getOptions(cardSets)}
           onChange={this.handleSelectCardset}
           value={selectedCardSet}
         />
+        <MemoryGame cards={cardSet} glimpse={2500}>
+          <MemoryGame.Reset />
+          <MemoryGame.MovesCounter />
+          <MemoryGame.PairsFoundCounter />
+          <MemoryGame.Board />
+        </MemoryGame>
       </div>
     );
   }
