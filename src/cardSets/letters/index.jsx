@@ -1,19 +1,42 @@
 import React from 'react';
 import styled from 'styled-components';
+import { shuffle } from 'lodash';
 
 const Wrap = styled.div`
   font-size: 120px;
 `;
 
-const cards = [
-  [<Wrap>A</Wrap>, <Wrap>a</Wrap>],
-  [<Wrap>B</Wrap>, <Wrap>b</Wrap>],
-  [<Wrap>C</Wrap>, <Wrap>c</Wrap>],
-  [<Wrap>D</Wrap>, <Wrap>d</Wrap>],
-  [<Wrap>E</Wrap>, <Wrap>e</Wrap>],
-  [<Wrap>F</Wrap>, <Wrap>f</Wrap>],
-  [<Wrap>G</Wrap>, <Wrap>g</Wrap>],
-  [<Wrap>H</Wrap>, <Wrap>h</Wrap>],
-];
+const letters = shuffle([
+  'a',
+  'b',
+  'c',
+  'd',
+  'e',
+  'f',
+  'g',
+  'h',
+  'i',
+  'j',
+  'k',
+  'l',
+  'm',
+  'n',
+  'o',
+  'p',
+  'q',
+  'r',
+  's',
+  't',
+  'u',
+  'v',
+  'x',
+  'y',
+  'z',
+]).slice(0, 8);
+
+const cards = letters.map((letter, i, arr) => [
+  <Wrap>{letter.toUpperCase()}</Wrap>,
+  <Wrap>{letter}</Wrap>,
+]);
 
 export default cards;
