@@ -1,6 +1,6 @@
 {
   "name": "react-memory-game",
-  "version": "0.1.11",
+  "version": "0.1.15",
   "private": false,
   "main": "lib/index.js",
   "repository": {
@@ -11,6 +11,7 @@
     }
   },
   "dependencies": {
+    "copyfiles": "^1.2.0",
     "lodash": "^4.17.5",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
@@ -23,8 +24,8 @@
   "scripts": {
     "start": "react-scripts start",
     "compile": "babel --presets es2015,stage-0,react -d lib/ src/module/",
-    "postcompile": "cp ./src/module/*.css ./lib",
-    "prepublish": "npm run compile",
+    "postcompile": "cp ./src/module/*.css ./lib; ./scripts/copybundledfiles.sh",
+    "prepublish": "npm run compile; npm run build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "watch:test": "react-scripts test --env=jsdom",
