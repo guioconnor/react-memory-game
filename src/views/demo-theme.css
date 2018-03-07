@@ -1,0 +1,48 @@
+.demo .memory-game--memory-grid {
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+  background: #666;
+  padding: 10px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2), -1px -1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.demo .memory-game--memory-slot {
+  flex: 1 0 25%;
+  padding: 5px;
+}
+
+.demo .memory-game--memory-card {
+  background: rgba(255, 255, 255, .8);
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.demo .memory-game--memory-card__closed {}
+
+.demo .memory-game--memory-card__open {}
+
+.demo .memory-game--memory-card__found {
+  opacity: .6;
+  filter: saturate(0%);
+  transition: opacity .3s, filter .3s,
+}
+
+.demo .memory-game--counter {
+  min-width: 50px;
+  text-align: center;
+}
+
+.demo .memory-game--reset {
+  padding: 10px 30px;
+  border-radius: 3px;
+  margin: 15px auto;
+  display: block;
+}
+.demo .memory-game--memory-card--content {
+  margin: auto;
+  width: 80px;
+  height: 80px;
+}

@@ -1,0 +1,29 @@
+html {
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  line-height: 1.6;
+  padding: 0 30px;
+}
+
+.about {
+  margin: auto;
+  max-width: 600px;
+  padding: 100px;
+}
+
+code {
+  background: #eee;
+  border-radius: 2px;
+}
+
+code.block {
+  display: block;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+pre {
+  margin: 0;
+}
