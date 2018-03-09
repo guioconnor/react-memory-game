@@ -45,7 +45,11 @@ PairsFoundCounter.contextTypes = {
   [MEMORY_GAME_CONTEXT]: PropTypes.object.isRequired,
 };
 export class MemoryGame extends Component {
-  static propTypes = { cards: PropTypes.arrayOf(PropTypes.any).isRequired };
+  static propTypes = {
+    cards: PropTypes.arrayOf(PropTypes.any).isRequired,
+    glimpse: PropTypes.number,
+    glimpseOnMount: PropTypes.bool,
+  };
   static Reset = ResetButton;
   static Board = Board;
   static MovesCounter = MovesCounter;
@@ -66,7 +70,8 @@ export class MemoryGame extends Component {
   }
 
   componentWillMount() {
-    if (this.props.glimpse) {
+    const { glimpse, glimpseOnMount } = this.props;
+    if (glimpse && glimpseOnMount) {
       this.startGlimpse();
     }
   }
