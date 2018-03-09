@@ -76,11 +76,17 @@ export class MemoryGame extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.cards !== this.props.cards) {
+      this.resetGame(nextProps.cards);
+    }
+  }
+
   getChildContext() {
     return {
       [MEMORY_GAME_CONTEXT]: {
         cards: this.getMemoryCards(),
-        resetGame: this.resetGame,
+        resetGame: this.resetGame.bind(this, this.props.cards),
         movesCounter: this.state.moves,
         pairsFoundCounter: this.state.pairsFound,
       },
@@ -117,9 +123,9 @@ export class MemoryGame extends Component {
     };
   };
 
-  resetGame = () => {
+  resetGame = cards => {
     clearTimeout(this.timeout);
-    this.setState(this.getInitialState(this.props.cards), () => {
+    this.setState(this.getInitialState(cards), () => {
       if (this.props.glimpse) {
         this.startGlimpse();
       }
