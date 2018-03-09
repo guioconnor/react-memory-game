@@ -1,0 +1,17 @@
+.memory-game--memory-grid {
+  width: 400px;
+  height: 400px;
+}
+
+.memory-game--reset {
+  margin: 10px auto;
+}
+
+.memory-game--counter {
+  background: #888;
+  color: #fff;
+  width: 150px;
+  margin: 20px auto;
+  border-radius: 5px;
+  font-size: 1.5rem;
+}

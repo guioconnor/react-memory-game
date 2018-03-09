@@ -2,13 +2,15 @@ import React from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Dashboard from './views/Dashboard.jsx';
-import About from './views/About.jsx';
+import Tutorial from './views/Tutorial.jsx';
+import Examples from './views/Examples.jsx';
 import Error404 from './views/Error404.jsx';
 import Navigation from './components/Navigation';
 
 const routes = [
   { uri: '/', label: 'Dashboard', component: Dashboard },
-  { uri: '/about', label: 'About', component: About },
+  { uri: '/tutorial', label: 'Tutorial', component: Tutorial },
+  { uri: '/examples', label: 'Examples', component: Examples },
 ];
 
 const App = () => (
