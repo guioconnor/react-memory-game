@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Counter /> when \`counter\` is undefined should return an empty placeholder : undefinedCounter 1`] = `
+<div
+  className="memory-game--counter"
+/>
+`;
+
+exports[`<Counter /> when a valid \`counter is passed\` should render the passed value as a child of the counter: undefinedCounter 1`] = `
+<div
+  className="memory-game--counter"
+>
+  42
+</div>
+`;

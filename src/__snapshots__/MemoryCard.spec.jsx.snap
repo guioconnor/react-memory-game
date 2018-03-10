@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MemoryCard /> when card sate is FOUND should render an found button with children inside: FoundMemoryCard 1`] = `
+<div
+  className="memory-game--memory-slot"
+>
+  <button
+    className="memory-game--memory-card memory-game--memory-card__found"
+  >
+    <CardContent>
+      <MockChildren />
+    </CardContent>
+  </button>
+</div>
+`;
+
+exports[`<MemoryCard /> when card sate is OPEN should render an open button with children inside: OpenMemoryCard 1`] = `
+<div
+  className="memory-game--memory-slot"
+>
+  <button
+    className="memory-game--memory-card memory-game--memory-card__open"
+  >
+    <CardContent>
+      <MockChildren />
+    </CardContent>
+  </button>
+</div>
+`;
+
+exports[`<MemoryCard /> when card state is CLOSED should render a closed button with children inside: ClosedMemoryCard 1`] = `
+<div
+  className="memory-game--memory-slot"
+>
+  <button
+    className="memory-game--memory-card memory-game--memory-card__closed"
+  >
+    <CardContent>
+      <MockChildren />
+    </CardContent>
+  </button>
+</div>
+`;

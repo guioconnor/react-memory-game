@@ -1,5 +1,5 @@
 {
-  "name": "react-memory-game",
+  "name": "react-memory-game-demo",
   "version": "0.1.16",
   "private": false,
   "main": "lib/index.js",
@@ -22,8 +22,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "compile": "babel --presets es2015,stage-0,react -d lib/ src/module/",
-    "postcompile": "cp ./src/module/*.css ./lib",
+    "compile": "babel --presets es2015,stage-0,react -d lib/ ../src/",
+    "postcompile": "cp ../src/*.css ./lib",
     "prepublish": "npm run compile",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

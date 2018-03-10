@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MemoryGrid 1`] = `
+exports[`<MemoryGrid> should render a container with children: MemoryGrid 1`] = `
 <div
   className="memory-game--memory-grid"
 />

@@ -3,6 +3,8 @@ sudo: false
 node_js:
 - 9.8.0
 install:
+- yarn
+- yarn test
 - cd demo
 - yarn
 script:
