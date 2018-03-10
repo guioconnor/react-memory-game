@@ -3,6 +3,7 @@ sudo: false
 node_js:
 - 9.8.0
 install:
+- cd demo
 - yarn
 script:
 - yarn test -- --coverage
@@ -17,7 +18,7 @@ deploy:
     tags: true
 - provider: surge
   skip_cleanup: true
-  project: "./build/"
+  project: "./demo/build/"
   domain: react-memory-game-demo.surge.sh
   on: master
 notifications:
