@@ -45,6 +45,7 @@
     "babel-core": "^6.26.0",
     "babel-jest": "^22.4.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
@@ -66,8 +67,8 @@
     "travis-deploy-once": "^4.4.0"
   },
   "peerDependencies": {
-    "react": "^16.2.0",
-    "lodash": "^4.17.5"
+    "lodash": "^4.17.5",
+    "react": "^16.2.0"
   },
   "czConfig": {
     "path": "node_modules/cz-conventional-changelog"
