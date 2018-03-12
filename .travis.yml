@@ -1,28 +1,21 @@
 language: node_js
-sudo: false
+cache:
+  directories:
+    - ~/.npm
 node_js:
-- 9.8.0
-install:
-- yarn
-- yarn test
-# - cd demo
-# - yarn
-# script:
-# - yarn test -- --coverage
-# - yarn build
-deploy:
-- provider: npm
-  skip_cleanup: true
-  email: guioconnor@gmail.com
-  api_key:
-    secure: Bh5TedDPchLHUBTLwM6wm6cdRATQ8gMrtofqbfWrN2Add4BNJxeDCGTh3dQUk2OjwCPCpG09moY128WeStvudm4gM/f9CwbvTQTC5KIBoHIIl2WYUBNUanagi6VanAC0VVkl2Q1xFoerrJt+lthaGGrTEv4PykB9tVzclT+3BHNPyOQ8I8mBsDroUy+U7SKcwjmGip44uTX8z9ZPqAhHKGGgjmuE0h0yTHiHq2vWJL7XpJQBFeBIQaZujmXZfl1JtQ2rOXzGNv9NwdyjQL29CRaM3TzrjyEUK4zN2RM4Sb/3otE21kj6UFLtn6Fxf8/JuoDsFS+GQ4L9YGFwhdhNhMSrZEXMuizTxUjuq7nU8AlO5okT0wrzXUF3++jV4zICzq0tfIhRw+0jQfy4TyYc2vHSUm4BQ6G1k3LTJau7VDUb0EV6A7c/qu2YttYfrXOBeFtlfaHBE9CaYN5iuGCMEEVuKY6yelhqdL1VrTCktLQGkuW5ggupBqaZ623GrYO/cNrUjI27LbocPbVnspnhXDMEcXHbJ5q9oGjKmoaNg0DC58VrkG0AzuUQtD3KeMtJ38gIUUlW6ER5VNyNGe4V44iWuiEcXufuK20btE8IUlw3L+NAmhU+/F0Dinw1lc+BoFUaGj2cRn8SpzEqV4Qp6nJVvsCvPleD0qAfDWg6HZs=
-  on:
-    tags: true
-# - provider: surge
-#   skip_cleanup: true
-#   project: "./demo/build/"
-#   domain: react-memory-game-demo.surge.sh
-#   on: master
+  - '9'
+  - '8'
+  - '6'
+  - '4'
+script:
+  - yarn test
+after_success:
+  - npm run travis-deploy-once "npm run semantic-release"
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
+
 notifications:
+  email: false
   slack:
     secure: uOSqx8VnPnnEW8HirGGe+zxHwLTC3l7tR7TUIv/YLFt0Y4jRKr7I3J8VdhwzjESVhDwaXqWliwsURMD2xA082XswtfhWsVCPr3Ovuio0qzr+pj5+3vYOWPaebkG5Tx2Ks8r/NIpi2MIiFAcSApxlLJ0BKrhojrZ6TOka0hKukILtfdZLS4JBVtKp0w9kdYEP/oXjt1eznbs7IKyvCK8ENGEPgGCNHE88VbQRBmsuODqamyZv8n+cc3U0pMihZz/rzJSxCF0lOC6m3W9puBJef7b1TZZ5MoqlQVwnngqLOwl67lrBmhMXomxb5nUlaLoN+41aAXcA38ncawEFnIcy1NZ74qEM0Cho/gyXPtQ+ghpGj8baRKTgrgRQnSiXiaHivm0rLEg/jZbLQNX44cQF7lQNT/XElqJ59B1bRcofzFHrh9xa5gQIiI2Tj7Y05wrlbLMAAtLt/xzq9jh9b1F6PU3bwfvoqsqB4Ocrj7Y+vUET35YF2Y7ToXjOjFF0eEg+l+rQR68NZl9zLRHAdJK8jUZw6up2do8qUbg9iydaOVF6s43RfKupoiz6Q53+HiDGIoBDk3nF1lM1Ql6cR9IYoGtMhEIN0/2M74xGSngwmHB25yYAzd5Xf8bDeDEtjpoENx0G8YTBXr7YRXD4QWgNDGsPYuZ6BccwinH/lnS7gfs=

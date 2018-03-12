@@ -1,17 +1,20 @@
 {
   "name": "react-memory-game",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "A memory game engine.",
   "main": "src/index.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "test": "jest"
+    "commit": "git-cz",
+    "test": "jest",
+    "travis-deploy-once": "travis-deploy-once",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/guioconnor/react-memory-game.git"
+    "url": "https://github.com/guioconnor/react-memory-game.git"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +29,8 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.1.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.1",
@@ -33,6 +38,11 @@
     "jest-babel": "^1.0.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "regenerator-runtime": "^0.11.1"
+    "regenerator-runtime": "^0.11.1",
+    "semantic-release": "^15.0.2",
+    "travis-deploy-once": "^4.4.0"
+  },
+  "czConfig": {
+    "path": "node_modules/cz-conventional-changelog"
   }
 }
