@@ -9,8 +9,9 @@
   "scripts": {
     "commit": "git-cz",
     "coverage": "jest --coverage",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
     "check-coverage": "istanbul check-coverage  -statements 25 -branches 25 -functions 25 -lines 25",
-    "test": "jest",
+    "test": "jest --watch",
     "travis-deploy-once": "travis-deploy-once",
     "semantic-release": "semantic-release"
   },
@@ -52,8 +53,7 @@
   },
   "config": {
     "ghooks": {
-      "pre-commit": "yarn test && yarn check-coverage"
+      "pre-commit": "yarn coverage && yarn check-coverage"
     }
-  },
-  "dependencies": {}
+  }
 }

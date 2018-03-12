@@ -8,11 +8,11 @@ node_js:
   # - '6'
   # - '4'
 script:
-  - yarn test
+  - yarn coverage
   - yarn check-coverage
 after_success:
   - npm run travis-deploy-once "npm run semantic-release"
-  - yarn check-coverage
+  - yarn report-coverage
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
