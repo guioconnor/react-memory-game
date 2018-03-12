@@ -10,6 +10,7 @@ node_js:
 script:
   - yarn coverage
   - yarn check-coverage
+  - yarn build
 after_success:
   - npm run travis-deploy-once "npm run semantic-release"
   - yarn report-coverage

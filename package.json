@@ -2,7 +2,7 @@
   "name": "react-memory-game",
   "version": "0.0.0-development",
   "description": "A memory game engine.",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "directories": {
     "doc": "docs"
   },
@@ -13,13 +13,27 @@
     "check-coverage": "istanbul check-coverage  -statements 25 -branches 25 -functions 25 -lines 25",
     "test": "jest --watch",
     "travis-deploy-once": "travis-deploy-once",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "prebuild": "rimraf dist",
+    "build": "babel --copy-files --out-dir dist --ignore *.spec.js src"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/guioconnor/react-memory-game.git"
   },
-  "keywords": [],
+  "keywords": [
+    "memory",
+    "game",
+    "gaming",
+    "engine",
+    "board",
+    "pattern",
+    "children"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -27,11 +41,13 @@
   },
   "homepage": "https://github.com/guioconnor/react-memory-game#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-jest": "^22.4.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "codecov.io": "^0.1.6",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.1.0",
@@ -45,8 +61,13 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "regenerator-runtime": "^0.11.1",
+    "rimraf": "^2.6.2",
     "semantic-release": "^15.0.2",
     "travis-deploy-once": "^4.4.0"
+  },
+  "peerDependencies": {
+    "react": "^16.2.0",
+    "lodash": "^4.17.5"
   },
   "czConfig": {
     "path": "node_modules/cz-conventional-changelog"

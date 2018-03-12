@@ -12,6 +12,9 @@ coverage
 /demo/build
 /demo/lib
 
+# built files
+dist
+
 # misc
 .DS_Store
 .env.local

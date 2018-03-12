@@ -1,5 +1,5 @@
 {
-  "presets": ["env", "react"],
+  "presets": ["react", "env", "stage-2"],
   "plugins": [
     ["transform-class-properties", { "spec": true }]
   ]
