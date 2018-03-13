@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { shuffle, identity, cloneDeep } from 'lodash';
+import "regenerator-runtime/runtime";
 
 import MemoryGrid from './MemoryGrid';
 import MemoryCard, { CARD_STATE } from './MemoryCard';
