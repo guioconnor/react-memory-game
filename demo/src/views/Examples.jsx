@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import MemoryGame from '../module';
+import MemoryGame from 'react-memory-game';
 import cards from '../cardSets/birds';
 import './styles.css';
 import './demo-theme.css';

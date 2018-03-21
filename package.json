@@ -18,7 +18,8 @@
     "build:main": "babel --copy-files --out-dir dist --ignore *.spec.js src",
     "build:umd": "webpack --output-filename index.umd.js",
     "build:umd.min": "webpack --output-filename index.umd.min.js -p",
-    "build": "npm-run-all --parallel build:*"
+    "build": "npm-run-all --parallel build:*",
+    "deploy-surge": "surge demo/build react-memory-game-demo-surge.sh"
   },
   "repository": {
     "type": "git",

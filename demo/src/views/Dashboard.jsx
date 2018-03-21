@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import MemoryGame from '../module';
-import '../module/default-theme.css';
+import MemoryGame from 'react-memory-game';
+import 'react-memory-game/dist/default-theme.css';
 
 import CardsSelector from '../components/CardsSelector';
 import birdsCards from '../cardSets/birds';

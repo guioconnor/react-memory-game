@@ -11,10 +11,14 @@ script:
   - yarn coverage
   - yarn check-coverage
   - yarn build
+  - cd demo
+  - yarn build
+  - cd ..
 after_success:
   - npm run travis-deploy-once "npm run semantic-release"
   - yarn report-coverage
-branches:
+  - yarn deploy-surge
+  branches:
   except:
     - /^v\d+\.\d+\.\d+$/
 

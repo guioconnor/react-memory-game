@@ -1,5 +1,5 @@
 import React from 'react';
-import MemoryGame from '../module';
+import MemoryGame from 'react-memory-game';
 import './styles.css';
 import './demo-theme.css';
 

@@ -31,7 +31,7 @@ Import the library into your Component and make use of
 import React from "react";
 import styled from "styled-components";
 import MemoryGame from "react-memory-game";
-import "react-memory-game/lib/default-theme.css";
+import "react-memory-game/dist/default-theme.css";
 
 const Wrap = styled.div`
   font-size: 120px;

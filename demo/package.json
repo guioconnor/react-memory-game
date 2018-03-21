@@ -21,10 +21,13 @@
     "styled-components": "^3.1.6"
   },
   "scripts": {
+    "buildPackage": "cd .. && npm run build && npm link && cd - && npm link react-memory-game",
+    "prestart": "npm run buildPackage",
     "start": "react-scripts start",
     "compile": "babel --presets es2015,stage-0,react -d lib/ ../src/",
     "postcompile": "cp ../src/*.css ./lib",
     "prepublish": "npm run compile",
+    "prebuild": "npm run buildPackage",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "watch:test": "react-scripts test --env=jsdom",
